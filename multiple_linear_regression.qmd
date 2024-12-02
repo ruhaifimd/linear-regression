@@ -154,13 +154,48 @@ ggplot(bmi, aes (Age))+
 
     2.  Calorie Intake
 
+        ```{r}
+        slr_calorie <- lm(BMI ~ Calorie_Intake, data = bmi)
+        slr_calorie
+        ```
+
     3.  Physical activity
+
+        ```{r}
+        slr_activity <- lm(BMI ~ Activity_Level, data = bmi)
+        slr_activity
+        ```
 
     4.  Smoking status
 
+        ```{r}
+        slr_smoking <- lm(BMI ~ Smoking_Status, data = bmi)
+        slr_smoking
+        ```
+
     5.  Sleep hours
 
+        ```{r}
+        slr_sleep <- lm(BMI ~ Sleep_Hours, data = bmi)
+        slr_sleep
+        ```
+
     ### Multivariable (without interaction)
+
+    ```{r}
+    mlr_mod1 <- lm(BMI ~ Age + Calorie_Intake + Activity_Level + Smoking_Status + Sleep_Hours,
+                   data = bmi)
+    mlr_mod1
+    ```
+
+    ```{r}
+    tbl_regression(mlr_mod1) %>%  add_glance_table(include = c(adj.r.squared)) %>% 
+      bold_labels() %>% italicize_levels() %>% add_n() %>% 
+      as_gt() %>%
+      gt::tab_header(title = "Multiple Linear Regression Model",
+                     subtitle = "Without Interaction")
+
+    ```
 
     ### Multivariable (with interaction)
 
