@@ -94,3 +94,76 @@ bmi %>%
  statistic = list(all_continuous() ~ "{mean} ({sd})")) %>% bold_labels() %>% 
 italicize_levels()
 ```
+
+## **Data Wrangling**
+
+1.  Age
+
+```{r}
+ggplot(bmi, aes (Age))+
+  geom_histogram()
+```
+
+2.  Calorie Intake
+
+    ```{r}
+    ggplot(bmi, aes (Calorie_Intake))+
+      geom_histogram()
+    ```
+
+3.  Sleep Hours
+
+    ```{r}
+    ggplot(bmi, aes (Sleep_Hours))+
+      geom_histogram()
+    ```
+
+4.  BMI
+
+    ```{r}
+    ggplot(bmi, aes (BMI))+
+      geom_histogram()
+    ```
+
+    For categorical data
+
+    1.  Physical Activity
+
+        ```{r}
+        ggplot(bmi, aes (Activity_Level))+
+          geom_bar()
+        ```
+
+    2.  Smoking Status
+
+        ```{r}
+        ggplot(bmi, aes (Smoking_Status))+
+          geom_bar()
+        ```
+
+    ## Perform Linear Regression Model
+
+    ### Univariable analysis
+
+    1.  Age
+
+        ```{r}
+        slr_age <- lm(BMI ~ Age, data = bmi)
+        slr_age
+        ```
+
+    2.  Calorie Intake
+
+    3.  Physical activity
+
+    4.  Smoking status
+
+    5.  Sleep hours
+
+    ### Multivariable (without interaction)
+
+    ### Multivariable (with interaction)
+
+    ### Model comparison
+
+    ### Model assessment
