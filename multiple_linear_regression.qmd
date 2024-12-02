@@ -1,0 +1,71 @@
+---
+title: "Assignment Multiple Linear Regression"
+author: "Group 1"
+format: html
+editor: visual
+---
+
+## **Group members:**
+
+1\) Muhammad Ruhaifi bin Muhammad Sabri (22305762)
+
+2\) Dzul Hairy bin Mohd Ramlan (22305758)
+
+3\) Nur Shuhaiza binti Supian (22306056)
+
+4\) Aziemah binti Nafsun (22305774)
+
+5\) Noor Nazli bt Din (22306061)
+
+---
+
+## **Workflow**
+
+-   Introduction
+
+-   Methodology
+
+-   Data Exploration
+
+-   Perform Linear Regression Model
+
+-   Model Assessment
+
+-   Final Model Checking
+
+-   Interpretation
+
+---
+
+## **Introduction**
+
+This was the data set comprises of 6 variables named age, calorie intake, physical activity, smoking status, sleep hours, and Body Mass Index (BMI) of population. We will attempt to create multivariate model using independent variables in explaining variation of BMI in sample population.
+
+---
+
+## **Methodology**
+
+We will use multiple linear regression model approach to analyse predictors to explain variation of BMI in sample population. 1st model will consist of all independent variables (age, calorie intake, physical activity, smoking status, and sleep hours) and another model will be constructed by adding interaction term between calorie intake and smoking status as effect of calorie intake on BMI can be modified by individual’s smoking status. Model comparison will be executed using anova test to select the final model. Model assessment will be conducted by running the diagnostic plot and checking the model for any influential observation before final model is concluded.
+
+---
+
+## **Data Exploration**
+
+```{r}
+#loading necessary packages
+library(tidyverse)
+library(haven)
+library(gtsummary)
+library(corrplot)
+library(knitr)
+library(tidyr)
+library(ggplot2)
+library(broom)
+```
+
+```{r}
+#Read data
+library(readr)
+bmi <- read_csv("bmi.csv")
+glimpse (bmi)
+```
