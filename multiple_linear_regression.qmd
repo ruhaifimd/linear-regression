@@ -17,7 +17,7 @@ editor: visual
 
 5\) Noor Nazli bt Din (22306061)
 
----
+------------------------------------------------------------------------
 
 ## **Workflow**
 
@@ -35,19 +35,19 @@ editor: visual
 
 -   Interpretation
 
----
+------------------------------------------------------------------------
 
 ## **Introduction**
 
 This was the data set comprises of 6 variables named age, calorie intake, physical activity, smoking status, sleep hours, and Body Mass Index (BMI) of population. We will attempt to create multivariate model using independent variables in explaining variation of BMI in sample population.
 
----
+------------------------------------------------------------------------
 
 ## **Methodology**
 
 We will use multiple linear regression model approach to analyse predictors to explain variation of BMI in sample population. 1st model will consist of all independent variables (age, calorie intake, physical activity, smoking status, and sleep hours) and another model will be constructed by adding interaction term between calorie intake and smoking status as effect of calorie intake on BMI can be modified by individual’s smoking status. Model comparison will be executed using anova test to select the final model. Model assessment will be conducted by running the diagnostic plot and checking the model for any influential observation before final model is concluded.
 
----
+------------------------------------------------------------------------
 
 ## **Data Exploration**
 
@@ -68,4 +68,20 @@ library(broom)
 library(readr)
 bmi <- read_csv("bmi.csv")
 glimpse (bmi)
+```
+
+## **Describe data**
+
+### **Convert “character” into “factor” variable**
+
+```{r}
+bmi<- 
+bmi %>%
+  mutate(across(where(is.character), as_factor))
+```
+
+### **Data summary**
+
+```{r}
+summary(bmi)
 ```

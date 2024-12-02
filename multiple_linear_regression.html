@@ -174,8 +174,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Rows: 500 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
-chr (1): Activity_Level
-dbl (5): Age, Calorie_Intake, Smoking_Status, Sleep_Hours, BMI
+chr (2): Activity_Level, Smoking_Status
+dbl (4): Age, Calorie_Intake, Sleep_Hours, BMI
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
@@ -187,11 +187,44 @@ Columns: 6
 $ Age            &lt;dbl&gt; 31, 32, 48, 18, 20, 33, 40, 28, 29, 27, 49, 33, 25, 55,…
 $ Calorie_Intake &lt;dbl&gt; 2211, 1522, 2314, 1845, 1801, 1862, 1895, 1717, 1640, 3…
 $ Activity_Level &lt;chr&gt; "Moderate", "Sedentary", "Sedentary", "Moderate", "Mode…
-$ Smoking_Status &lt;dbl&gt; 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0…
+$ Smoking_Status &lt;chr&gt; "yes", "yes", "no", "no", "yes", "yes", "no", "yes", "n…
 $ Sleep_Hours    &lt;dbl&gt; 5.0, 6.5, 6.5, 8.9, 4.0, 5.8, 9.9, 6.8, 6.3, 4.7, 9.8, …
 $ BMI            &lt;dbl&gt; 24.8, 23.0, 28.0, 26.9, 22.9, 23.5, 23.2, 19.9, 25.7, 2…</code></pre>
 </div>
 </div>
+</section>
+<section id="describe-data" class="level2">
+<h2 class="anchored" data-anchor-id="describe-data"><strong>Describe data</strong></h2>
+<section id="convert-character-into-factor-variable" class="level3">
+<h3 class="anchored" data-anchor-id="convert-character-into-factor-variable"><strong>Convert “character” into “factor” variable</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bmi<span class="ot">&lt;-</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>bmi <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), as_factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-summary" class="level3">
+<h3 class="anchored" data-anchor-id="data-summary"><strong>Data summary</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Age        Calorie_Intake   Activity_Level Smoking_Status
+ Min.   :18.00   Min.   :1503   Moderate :175    yes:247       
+ 1st Qu.:29.00   1st Qu.:2024   Sedentary:169    no :253       
+ Median :43.00   Median :2490   Active   :156                  
+ Mean   :42.78   Mean   :2487                                  
+ 3rd Qu.:55.00   3rd Qu.:2958                                  
+ Max.   :69.00   Max.   :3490                                  
+  Sleep_Hours          BMI       
+ Min.   : 4.000   Min.   :16.30  
+ 1st Qu.: 5.400   1st Qu.:24.70  
+ Median : 6.900   Median :26.70  
+ Mean   : 6.919   Mean   :26.83  
+ 3rd Qu.: 8.500   3rd Qu.:28.80  
+ Max.   :10.000   Max.   :36.10  </code></pre>
+</div>
+</div>
+</section>
 </section>
 
 </main>
