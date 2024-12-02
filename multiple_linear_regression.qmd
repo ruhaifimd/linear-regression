@@ -85,3 +85,12 @@ bmi %>%
 ```{r}
 summary(bmi)
 ```
+
+**Table Summary**
+
+```{r}
+bmi %>% 
+  tbl_summary( label = list(Age  ~ "Age", Calorie_Intake  ~ "Calorie Intake", Activity_Level ~ "Physical Activity" , Smoking_Status ~ "Smoking Status", Sleep_Hours ~ "Sleep Hours",  BMI ~ "BMI") , 
+ statistic = list(all_continuous() ~ "{mean} ({sd})")) %>% bold_labels() %>% 
+italicize_levels()
+```
